@@ -12,7 +12,16 @@ import lombok.NoArgsConstructor;
 public class AuthorPojo implements BasePojo {
 
     private int id;
-    private String idBook;
+    private int idBook;
     private String firstName;
     private String lastName;
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) return true;
+        if (that == null || getClass() != that.getClass()) return false;
+        AuthorPojo other = (AuthorPojo) that;
+        return id == other.id && firstName.equals(other.firstName) && lastName.equals(other.lastName);
+    }
+
 }

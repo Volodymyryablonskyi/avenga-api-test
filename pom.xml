@@ -18,8 +18,8 @@
         <lombok.version>1.18.38</lombok.version>
         <allure.version>2.29.1</allure.version>
         <io.vavr.version>0.10.7</io.vavr.version>
+        <assertj.version>3.27.3</assertj.version>
     </properties>
-
 
     <dependencies>
 
@@ -71,6 +71,12 @@
             <version>1.4.3</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+        </dependency>
+
     </dependencies>
 
 
@@ -94,7 +100,7 @@
                 <version>3.1.2</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>false</testFailureIgnore>
                     <systemPropertyVariables>

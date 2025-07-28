@@ -18,4 +18,16 @@ public class BookPojo implements BasePojo{
     private String excerpt;
     private String publishDate;
 
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) return true;
+        if (that == null || getClass() != that.getClass()) return false;
+        BookPojo other = (BookPojo) that;
+        return id == other.id &&
+                pageCount == other.pageCount &&
+                title.equals(other.title) &&
+                description.equals(other.description) &&
+                excerpt.equals(other.excerpt);
+    }
+
 }
