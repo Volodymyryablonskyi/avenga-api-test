@@ -16,5 +16,4 @@ public class BaseAuthorTest extends BaseTest {
         this.testData = new AuthorsTestData();
     }
 
-
 }

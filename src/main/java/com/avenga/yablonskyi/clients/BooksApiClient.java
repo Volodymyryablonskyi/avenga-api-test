@@ -3,6 +3,7 @@ package com.avenga.yablonskyi.clients;
 import com.avenga.yablonskyi.dto.BookPojo;
 import com.avenga.yablonskyi.endpoints.BooksEndpoints;
 import com.avenga.yablonskyi.http.response.ResponseWrapper;
+import com.avenga.yablonskyi.util.CustomLogger;
 
 public class BooksApiClient extends BaseApiClient<BooksEndpoints, BookPojo> {
 

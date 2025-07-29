@@ -1,0 +1,7 @@
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"Authors API","Positive tests for Authors API","","0","0","5","0","0"
+"Books API","Positive tests for Books API","","0","0","5","0","0"
+"Books API","Negative tests for Books API","","4","0","1","0","0"
+"Authors API","Negative tests for Authors API","","4","0","1","0","0"
+"Authors API","Edge cases tests for Authors API","","0","0","1","0","0"
+"Books API","Edge cases tests for Books API","","0","0","1","0","0"

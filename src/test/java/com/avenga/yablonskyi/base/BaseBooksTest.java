@@ -16,7 +16,4 @@ public class BaseBooksTest extends BaseTest {
         this.testData = new BooksTestData();
     }
 
-
-
-
 }

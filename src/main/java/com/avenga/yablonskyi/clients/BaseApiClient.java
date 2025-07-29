@@ -5,13 +5,14 @@ import com.avenga.yablonskyi.dto.BasePojo;
 import com.avenga.yablonskyi.endpoints.BaseEndpoint;
 import com.avenga.yablonskyi.http.requests.RequestsFactory;
 import com.avenga.yablonskyi.http.response.ResponseWrapper;
+import com.avenga.yablonskyi.util.CustomLogger;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
 public abstract class BaseApiClient<T extends BaseEndpoint, D extends BasePojo> {
 
-    private final static String BASE_URI = ApplicationConfig.getBaseUri();
+    private static final String BASE_URI = ApplicationConfig.getBaseUri();
 
     protected final RequestSpecification spec;
     protected RequestsFactory requestsFactory;
