@@ -3,24 +3,30 @@ package com.avenga.yablonskyi.util;
 import com.avenga.yablonskyi.http.requests.enums.HttpMethod;
 import com.avenga.yablonskyi.http.response.ResponseWrapper;
 import io.qameta.allure.Allure;
-import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Setter
+import java.util.Objects;
+
+
 public class CustomLogger {
 
     private static final int MAX_LOG_BODY_LENGTH = 2000;
 
-    private boolean allowAllure = true;
+    private final boolean allowAllure;
     private final Logger logger;
 
-    private CustomLogger(Class<?> clazz) {
+    private CustomLogger(Class<?> clazz, boolean allowAllure) {
+        this.allowAllure = allowAllure;
         this.logger = LoggerFactory.getLogger(clazz.getSimpleName());
     }
 
+    public static CustomLogger getLogger(Class<?> clazz, boolean allowAllure) {
+        return new CustomLogger(clazz, allowAllure);
+    }
+
     public static CustomLogger getLogger(Class<?> clazz) {
-        return new CustomLogger(clazz);
+        return new CustomLogger(clazz, true);
     }
 
     public void info(String message, Object... args) {
@@ -50,10 +56,8 @@ public class CustomLogger {
 
     public void logRequest(HttpMethod method, String endpoint, Object body) {
         String pretty = JsonConverter.prettifyJson(body);
-        logger.info("Sending {} request to: {}", method, endpoint);
-        logger.info("Request body:\n{}", pretty);
-        Allure.step("Sending " + method + " request to: " + endpoint);
-        AllureAttachment.attachJson("Request Body", pretty);
+        info("Sending {} request to: {}", method, endpoint);
+        info("Request body:\n{}", pretty);
     }
 
     public void logRequest(HttpMethod method, String endpoint) {
@@ -61,22 +65,18 @@ public class CustomLogger {
     }
 
     public void logResponse(ResponseWrapper response) {
-        if (response == null) {
-            logger.warn("Received null response");
-            Allure.step("Received null response");
+        if (Objects.isNull(response)) {
+            logger.warn("Received response - null");
+            Allure.step("Received response - null");
             return;
         }
-        logger.info("Response status: {}", response.statusCode());
+        int status = response.statusCode();
         String pretty = JsonConverter.prettifyJson(response.getBodyAsString());
-
         String limited = pretty.length() > MAX_LOG_BODY_LENGTH
                 ? pretty.substring(0, MAX_LOG_BODY_LENGTH) + "... [truncated]"
                 : pretty;
-
-        logger.info("Response body:\n{}", limited);
-        if (allowAllure) {
-            AllureAttachment.attachJson("Response Body", pretty);
-        }
+        info("Response status: {}", status);
+        info("Response body:\n{}", limited);
     }
 
     private void logAllure(String message, Object... args) {
@@ -95,6 +95,21 @@ public class CustomLogger {
             message = message.replaceFirst("\\{}", arg != null ? arg.toString() : "null");
         }
         return message;
+    }
+
+     public void logHeader(String message, LogLevel level) {
+        String formatted = "----------- " + message + " -----------";
+        switch (level) {
+            case LogLevel.INFO -> info(formatted);
+            case LogLevel.WARN -> warn(formatted);
+            case LogLevel.ERROR -> error(formatted);
+        }
+    }
+
+    public enum LogLevel {
+        INFO,
+        WARN,
+        ERROR
     }
 
 }

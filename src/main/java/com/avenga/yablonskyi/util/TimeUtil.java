@@ -1,16 +1,11 @@
 package com.avenga.yablonskyi.util;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 
 public class TimeUtil {
 
     public static LocalTime getCurrentTime() { return LocalTime.now(); }
-
-    public static LocalDate getCurrentDate() {
-        return LocalDate.now();
-    }
 
     public static long getDuration(LocalTime start, LocalTime end) {
         return start.until(end, ChronoUnit.SECONDS);
@@ -23,4 +18,5 @@ public class TimeUtil {
         }
         return String.format("%02d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, (seconds % 60));
     }
+
 }

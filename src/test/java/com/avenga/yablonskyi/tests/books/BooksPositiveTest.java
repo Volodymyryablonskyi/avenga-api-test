@@ -1,14 +1,14 @@
 package com.avenga.yablonskyi.tests.books;
 
 import com.avenga.yablonskyi.base.BaseBooksTest;
-import com.avenga.yablonskyi.dto.BookPojo;
+import com.avenga.yablonskyi.pojo.BookPojo;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Test;
 
 @Epic("Books API")
-@Feature("Positive tests for Books API")
+@Feature("Books API Positive")
 public class BooksPositiveTest extends BaseBooksTest {
 
     @Test(alwaysRun = true,

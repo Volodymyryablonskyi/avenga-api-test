@@ -1,8 +1,9 @@
 package com.avenga.yablonskyi.http.requests;
 
-import com.avenga.yablonskyi.clients.BaseApiClient;
+import com.avenga.yablonskyi.constants.Constants;
 import com.avenga.yablonskyi.http.requests.enums.HttpMethod;
 import com.avenga.yablonskyi.util.CustomLogger;
+import io.restassured.internal.RequestSpecificationImpl;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,8 @@ public abstract class AbstractRequest {
     protected final HttpMethod method;
 
     public final Response send(String uri) {
-        log.logRequest(method, uri);
+        uri = Constants.BASE_URI + uri;
+        log.logRequest(method,  uri);
         return given(spec).when().request(method.name(), uri);
     }
 

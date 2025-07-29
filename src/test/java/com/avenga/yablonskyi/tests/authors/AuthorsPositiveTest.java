@@ -1,14 +1,14 @@
 package com.avenga.yablonskyi.tests.authors;
 
 import com.avenga.yablonskyi.base.BaseAuthorTest;
-import com.avenga.yablonskyi.dto.AuthorPojo;
+import com.avenga.yablonskyi.pojo.AuthorPojo;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Test;
 
 @Epic("Authors API")
-@Feature("Positive tests for Authors API")
+@Feature("Authors API Positive")
 public class AuthorsPositiveTest extends BaseAuthorTest {
 
     @Test(alwaysRun = true,

@@ -1,8 +1,9 @@
 package com.avenga.yablonskyi.http.requests;
 
+import com.avenga.yablonskyi.constants.Constants;
 import com.avenga.yablonskyi.http.requests.enums.HttpMethod;
 import com.avenga.yablonskyi.util.CustomLogger;
-import com.avenga.yablonskyi.util.JsonConverter;
+import io.restassured.internal.RequestSpecificationImpl;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -18,6 +19,7 @@ public class PostRequest extends AbstractRequest implements IRequestWithBody {
 
     @Override
     public Response send(String uri, Object body) {
+        uri = Constants.BASE_URI + uri;
         log.logRequest(HttpMethod.POST, uri, body);
         return given(spec).body(body).when().post(uri);
     }

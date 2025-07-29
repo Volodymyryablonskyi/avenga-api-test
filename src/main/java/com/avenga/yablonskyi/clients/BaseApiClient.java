@@ -1,17 +1,16 @@
 package com.avenga.yablonskyi.clients;
 
 import com.avenga.yablonskyi.config.ApplicationConfig;
-import com.avenga.yablonskyi.dto.BasePojo;
+import com.avenga.yablonskyi.constants.Constants;
 import com.avenga.yablonskyi.endpoints.BaseEndpoint;
 import com.avenga.yablonskyi.http.requests.RequestsFactory;
 import com.avenga.yablonskyi.http.response.ResponseWrapper;
+import com.avenga.yablonskyi.pojo.BasePojo;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
 public abstract class BaseApiClient<T extends BaseEndpoint, D extends BasePojo> {
-
-    private static final String BASE_URI = ApplicationConfig.getBaseUri();
 
     protected final RequestSpecification spec;
     protected RequestsFactory requestsFactory;
@@ -20,7 +19,7 @@ public abstract class BaseApiClient<T extends BaseEndpoint, D extends BasePojo> 
     public BaseApiClient(T endpoints) {
         this.endpoints = endpoints;
         this.spec = new RequestSpecBuilder()
-                .setBaseUri(BASE_URI)
+                .setBaseUri(Constants.BASE_URI)
                 .setContentType(ContentType.JSON)
                 .addHeader("Accept", "application/json")
                 .build();

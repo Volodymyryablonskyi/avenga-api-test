@@ -14,5 +14,4 @@ public class Randomizer {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
 
-
 }

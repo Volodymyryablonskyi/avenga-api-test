@@ -1,6 +1,6 @@
 package com.avenga.yablonskyi.testdata;
 
-import com.avenga.yablonskyi.dto.AuthorPojo;
+import com.avenga.yablonskyi.pojo.AuthorPojo;
 import com.avenga.yablonskyi.util.Randomizer;
 
 public class AuthorsTestData implements BaseTestData {

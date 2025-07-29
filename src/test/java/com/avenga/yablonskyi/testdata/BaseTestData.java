@@ -1,6 +1,6 @@
 package com.avenga.yablonskyi.testdata;
 
-import com.avenga.yablonskyi.dto.BasePojo;
+import com.avenga.yablonskyi.pojo.BasePojo;
 import com.avenga.yablonskyi.util.Randomizer;
 
 public interface BaseTestData {

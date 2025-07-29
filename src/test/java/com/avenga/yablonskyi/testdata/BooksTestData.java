@@ -1,6 +1,6 @@
 package com.avenga.yablonskyi.testdata;
 
-import com.avenga.yablonskyi.dto.BookPojo;
+import com.avenga.yablonskyi.pojo.BookPojo;
 import com.avenga.yablonskyi.util.Randomizer;
 
 import java.time.OffsetDateTime;

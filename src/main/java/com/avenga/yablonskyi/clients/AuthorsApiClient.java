@@ -1,8 +1,8 @@
 package com.avenga.yablonskyi.clients;
 
-import com.avenga.yablonskyi.dto.AuthorPojo;
 import com.avenga.yablonskyi.endpoints.AuthorsEndpoints;
 import com.avenga.yablonskyi.http.response.ResponseWrapper;
+import com.avenga.yablonskyi.pojo.AuthorPojo;
 import com.avenga.yablonskyi.util.CustomLogger;
 
 public class AuthorsApiClient extends BaseApiClient<AuthorsEndpoints, AuthorPojo> {

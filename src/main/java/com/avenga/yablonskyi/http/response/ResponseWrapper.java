@@ -53,7 +53,7 @@ public class ResponseWrapper {
         if (response == null) return ResponseWrapper.empty();
         ResponseWrapper responseWrapper = new ResponseWrapper(response);
         log.logResponse(responseWrapper);
-        return new ResponseWrapper(response);
+        return responseWrapper;
     }
 
     public static ResponseWrapper empty() {
