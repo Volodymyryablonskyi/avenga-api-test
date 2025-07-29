@@ -35,6 +35,11 @@ public class CustomLogger {
         logAllure(message, args);
     }
 
+    public void error(String message, Object... args) {
+        logger.error(message, args);
+        logAllure(message, args);
+    }
+
     public void error(String message, Throwable throwable) {
         logger.error(message, throwable);
         logAllure(message + ": " + throwable.getMessage());

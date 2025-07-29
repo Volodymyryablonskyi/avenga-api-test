@@ -5,11 +5,11 @@
        verbose="2"
        time-out="30000"
        parallel="tests"
-       thread-count="2">
+       thread-count="1">
 
     <listeners>
         <listener class-name="com.avenga.yablonskyi.listeners.GlobalTestListener"/>
-        <listener class-name="com.avenga.yablonskyi.listeners.RetryListener"/>
+        <listener class-name="com.avenga.yablonskyi.listeners.RetryAnalyzer"/>
         <listener class-name="com.avenga.yablonskyi.listeners.AllureListener"/>
     </listeners>
 
