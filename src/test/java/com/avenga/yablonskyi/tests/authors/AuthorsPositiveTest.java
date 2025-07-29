@@ -35,7 +35,7 @@ public class AuthorsPositiveTest extends BaseAuthorTest {
                 .verify()
                 .verifyStatusCode200()
                 .verifyBodyEqualsToPojo(AuthorPojo.class, expectedAuthor)
-                .verifyJsonValueMatchCondition("idBook", Integer.class,  bid -> bid > 0 );
+                .verifyJsonValueMatchCondition("idBook", Integer.class,  bid -> bid > 0, "idBook > 0");
     }
 
     @Test(alwaysRun = true,

@@ -1,6 +1,7 @@
 package com.avenga.yablonskyi.util;
 
 import com.avenga.yablonskyi.http.requests.enums.HttpMethod;
+import com.avenga.yablonskyi.http.response.ResponseWrapper;
 import io.qameta.allure.Allure;
 import lombok.Setter;
 import org.slf4j.Logger;
@@ -8,6 +9,8 @@ import org.slf4j.LoggerFactory;
 
 @Setter
 public class CustomLogger {
+
+    private static final int MAX_LOG_BODY_LENGTH = 2000;
 
     private boolean allowAllure = true;
     private final Logger logger;
@@ -50,11 +53,30 @@ public class CustomLogger {
         logger.info("Sending {} request to: {}", method, endpoint);
         logger.info("Request body:\n{}", pretty);
         Allure.step("Sending " + method + " request to: " + endpoint);
-        AllureAttachment.attachJson("📤 Request Body", pretty);
+        AllureAttachment.attachJson("Request Body", pretty);
     }
 
     public void logRequest(HttpMethod method, String endpoint) {
         info("Sending {} request to: {}", method, endpoint);
+    }
+
+    public void logResponse(ResponseWrapper response) {
+        if (response == null) {
+            logger.warn("Received null response");
+            Allure.step("Received null response");
+            return;
+        }
+        logger.info("Response status: {}", response.statusCode());
+        String pretty = JsonConverter.prettifyJson(response.getBodyAsString());
+
+        String limited = pretty.length() > MAX_LOG_BODY_LENGTH
+                ? pretty.substring(0, MAX_LOG_BODY_LENGTH) + "... [truncated]"
+                : pretty;
+
+        logger.info("Response body:\n{}", limited);
+        if (allowAllure) {
+            AllureAttachment.attachJson("Response Body", pretty);
+        }
     }
 
     private void logAllure(String message, Object... args) {

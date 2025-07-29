@@ -6,9 +6,12 @@ public class LogListener {
 
     private static final CustomLogger log = CustomLogger.getLogger(GlobalTestListener.class);
 
-    static void logHeader(String message, LogLevel level) {
+    static {
         log.setAllowAllure(false);
-        String formatted = "------- " + message + " -------";
+    }
+
+    static void logHeader(String message, LogLevel level) {
+        String formatted = "----------- " + message + " -----------";
         switch (level) {
             case LogLevel.INFO -> log.info(formatted);
             case LogLevel.WARN -> log.warn(formatted);

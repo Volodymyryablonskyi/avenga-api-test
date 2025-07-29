@@ -35,7 +35,7 @@ public class BooksPositiveTest extends BaseBooksTest {
                 .verify()
                 .verifyStatusCode200()
                 .verifyBodyEqualsToPojo(BookPojo.class, expectedBook)
-                .verifyJsonValueMatchCondition("publishDate", String.class, s -> !s.isEmpty());
+                .verifyJsonValueMatchCondition("publishDate", String.class, s -> !s.isEmpty(), "publishDate is not empty");
     }
 
     @Test(alwaysRun = true,

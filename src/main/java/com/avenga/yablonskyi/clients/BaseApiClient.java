@@ -5,7 +5,6 @@ import com.avenga.yablonskyi.dto.BasePojo;
 import com.avenga.yablonskyi.endpoints.BaseEndpoint;
 import com.avenga.yablonskyi.http.requests.RequestsFactory;
 import com.avenga.yablonskyi.http.response.ResponseWrapper;
-import com.avenga.yablonskyi.util.CustomLogger;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
