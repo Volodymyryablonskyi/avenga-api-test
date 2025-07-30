@@ -38,7 +38,7 @@ mvn clean test
 To run tests by group (for example, edge cases only):
 
 ```bash
-mvn clean test -Dgroups=authors_edge
+mvn clean test -Dgroups=authors-edge
 ```
 
 Defined TestNG groups:
@@ -76,7 +76,7 @@ Or use direct [installation guide](https://docs.qameta.io/allure/#_installing_a_
 
 ### 2. Generate Report after tests:
 
-Open project folder in Terminal, or you can use Terminal in your IDE;
+Open project folder in Terminal, or you can use Terminal in your IDE.
 
 ```bash
 allure serve ./target/allure-results
