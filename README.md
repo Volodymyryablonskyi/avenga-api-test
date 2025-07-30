@@ -118,3 +118,35 @@ allure open ./allure-report
 
 ### `src/test/resources`
 - `testng.xml` – test suite configurations.
+
+## GitHub Actions CI with Allure Report
+
+This project includes a pre-configured GitHub Actions workflow:
+
+- Runs Maven tests on every `push` and `pull_request`
+- Generates an Allure report from `target/allure-results`
+- Uploads the report as an artifact for manual download
+
+### How It Works
+
+The workflow file is located at: `.github/workflows/api-tests.yml`
+
+### How to View the Allure Report
+1. Go to the **Actions** tab on GitHub
+2. Select the latest run of `API Tests with Allure Report`
+3. Scroll to the bottom and download the artifact named `allure-report`
+4. Unzip it locally:
+   ```bash
+   unzip allure-report.zip -d allure-report
+   cd allure-reporе
+   ```
+5. Open it in a browser:
+   ```bash
+   allure open .
+    ```
+###$ Note for Ubuntu Users
+If you're on Ubuntu and see this error when running allure open:
+```The BROWSE action is not supported on the current platform!```
+This means Allure CLI cannot open your browser automatically.
+However, the report server is running. You’ll see a link like: ```http://127.0.0.1:PORT```
+Just copy that link and open it manually in your browser.
