@@ -1,6 +1,5 @@
 package com.avenga.yablonskyi.clients;
 
-import com.avenga.yablonskyi.config.ApplicationConfig;
 import com.avenga.yablonskyi.constants.Constants;
 import com.avenga.yablonskyi.endpoints.BaseEndpoint;
 import com.avenga.yablonskyi.http.requests.RequestsFactory;

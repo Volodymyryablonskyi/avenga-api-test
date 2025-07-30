@@ -31,7 +31,6 @@ public class RequestsFactory {
             case DELETE -> delete();
             case POST -> post();
             case PUT -> put();
-            default -> throw new IllegalArgumentException("Unsupported Http Method: " + method);
         };
     }
 
