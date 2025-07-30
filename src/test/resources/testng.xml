@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="" verbose="1" time-out="30000">
+<suite name="Books and Authors API Automation Suite"
+       verbose="2"
+       time-out="30000"
+       parallel="tests"
+       thread-count="1">
+
+    <listeners>
+        <listener class-name="com.avenga.yablonskyi.listeners.GlobalTestListener"/>
+        <listener class-name="com.avenga.yablonskyi.listeners.RetryAnalyzer"/>
+    </listeners>
+
+    <test name="Books API Tests">
+        <classes>
+            <class name="com.avenga.yablonskyi.tests.books.BooksPositiveTest"/>
+            <class name="com.avenga.yablonskyi.tests.books.BooksEdgeCasesTest"/>
+        </classes>
+    </test>
+
+    <test name="Authors API Tests">
+        <classes>
+            <class name="com.avenga.yablonskyi.tests.authors.AuthorsPositiveTest"/>
+            <class name="com.avenga.yablonskyi.tests.authors.AuthorsEdgeCasesTest"/>
+        </classes>
+    </test>
 
 </suite>
