@@ -146,7 +146,8 @@ The workflow file is located at: `.github/workflows/api-tests.yml`
     ```
 ### Note for Ubuntu Users
 If you're on Ubuntu and see this error when running allure open:
-```The BROWSE action is not supported on the current platform!```
+`The BROWSE action is not supported on the current platform!`
 This means Allure CLI cannot open your browser automatically.
-However, the report server is running. You’ll see a link like: ```http://127.0.0.1:PORT```
+However, the report server is running. You’ll see a link like: 
+`bash http://127.0.0.1:PORT`
 Just copy that link and open it manually in your browser.
