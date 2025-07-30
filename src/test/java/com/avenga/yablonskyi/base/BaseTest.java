@@ -12,7 +12,6 @@ public class BaseTest {
         RestAssuredConfigurator.configure();
     }
 
-
     public static boolean getRerun() {
         return isRerun.get();
     }

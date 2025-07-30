@@ -91,8 +91,8 @@ Server started at <http://127.0.0.1:41545>. Press <Ctrl+C> to exit
 If `allure serve` does not work, you can manually generate and open:
 
 ```bash
-allure generate ./allure-results -o ./allure-report --clean
-allure open ./allure-report
+allure generate ./target/allure-results -o ./target/allure-report --clean
+allure open ./target/allure-report
 ```
 
 ## Project Structure – Key Modules
