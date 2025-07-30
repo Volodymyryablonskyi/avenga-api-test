@@ -44,7 +44,7 @@ mvn clean test -Dgroups=authors_edge
 Defined TestNG groups:
 - `books` – happy path for books API
 - `authors` – happy path for authors API
-- `authors-edge` – edge cases and negative tests for authros API
+- `authors-edge` – edge cases and negative tests for authors API
 - `books-positive` - positive cases for books API
 
 Also, you can run specific test with unique group that is included for each test. 
@@ -57,22 +57,32 @@ This project uses Allure for reporting with step-based logs and attachments.
 ### 1. Install Allure CLI (locally)
 
 If not already installed:
+
 ```bash
-brew install allure     # on macOS
-choco install allure    # on Windows
+# on macOS
+brew install allure     
+
+# on Windows
+choco install allure    
+
+# on Ubuntu
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+brew install allure
 ```
 
 Or use direct [installation guide](https://docs.qameta.io/allure/#_installing_a_commandline)
 
 ### 2. Generate Report after tests:
 
-Open project folder in Terminal, or you can use Terminal in you IDE;
+Open project folder in Terminal, or you can use Terminal in your IDE;
 
 ```bash
 allure serve ./target/allure-results
 ```
 This will start a local server and open the report in your browser.
-If report is not opened you can click the Link in console Output,
+If report is not opened you can click the link shown in console,
 usually it looks like that
 ```bash
 Server started at <http://127.0.0.1:41545>. Press <Ctrl+C> to exit
