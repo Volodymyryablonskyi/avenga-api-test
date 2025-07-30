@@ -152,6 +152,6 @@ If you're on Ubuntu and see this error when running allure open:
 This means Allure CLI cannot open your browser automatically.
 However, the report server is running. You’ll see a link like: 
  ```bash
-`bash http://127.0.0.1:PORT`
+bash http://127.0.0.1:PORT
 ```
 Just copy that link and open it manually in your browser.
