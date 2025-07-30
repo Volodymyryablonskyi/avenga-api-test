@@ -144,7 +144,7 @@ The workflow file is located at: `.github/workflows/api-tests.yml`
    ```bash
    allure open .
     ```
-###$ Note for Ubuntu Users
+### Note for Ubuntu Users
 If you're on Ubuntu and see this error when running allure open:
 ```The BROWSE action is not supported on the current platform!```
 This means Allure CLI cannot open your browser automatically.
